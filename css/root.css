@@ -1,0 +1,213 @@
+:root {
+    --white: #fff;
+    --black: #161616;
+    --gray: #8c8c8c;
+}
+
+html {
+    padding: 0;
+    margin: 0;
+}
+
+#body {
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* start nav-toggle styling */
+#navToggle {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    z-index: 1000;
+    top: 15px;
+    right: 15px;
+    border-radius: 50%;
+    background: var(--black);
+    border: 1px solid var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#barContainer {
+    width: 100%;
+    height: 100%;
+}
+
+#barOne {
+    width: 40%;
+    height: 5%;
+    background: var(--white);
+    position: relative;
+    left: 30%;
+    top: 30%;
+}
+
+.bar-one-transition {
+    animation-name: bar-one-transition;
+    animation-duration: 300ms;
+    animation-iteration-count: 1;
+    /* animation-fill-mode: forwards; */
+}
+
+.bar-one-transition-out {
+    animation-name: bar-one-transition;
+    animation-duration: 300ms;
+    animation-iteration-count: 1;
+    animation-direction: reverse;
+}
+
+@keyframes bar-one-transition {
+    from {
+        transform: none;
+    }
+
+    to {
+        transform: rotateZ(-45deg);
+        width: 60%;
+        top: 45%;
+        left: 20%;
+    }
+}
+
+.bar-one-hold {
+    transform: rotateZ(-45deg) !important;
+    width: 60% !important;
+    top: 45% !important;
+    left: 20% !important;
+}
+
+#barTwo {
+    width: 50%;
+    height: 5%;
+    background: var(--white);
+    position: relative;
+    left: 25%;
+    top: 40%;
+}
+
+.bar-two-transition {
+    animation-name: bar-two-transition;
+    animation-duration: 200ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.bar-two-transition-out {
+    animation-name: bar-two-transition;
+    animation-direction: reverse;
+    animation-duration: 200ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes bar-two-transition {
+    from {
+        width: 50%;
+    }
+
+    to {
+        width: 0;
+    }
+}
+.bar-two-hold{
+    width: 0 !important;
+}
+
+#barThree {
+    width: 40%;
+    height: 5%;
+    background: var(--white);
+    position: relative;
+    top: 50%;
+    left: 30%;
+}
+
+.bar-three-transition {
+    animation-name: bar-three-transition;
+    animation-duration: 300ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.bar-three-transition-out {
+    animation-name: bar-three-transition;
+    animation-duration: 300ms;
+    animation-iteration-count: 1;
+    animation-direction: reverse;
+}
+
+@keyframes bar-three-transition {
+    from {
+        transform: none;
+    }
+
+    to {
+        transform: rotateZ(45deg);
+        width: 60%;
+        top: 35%;
+        left: 20%;
+    }
+}
+.bar-three-hold{
+    transform: rotateZ(45deg) !important;
+    width: 60% !important;
+    top: 35% !important;
+    left: 20% !important;
+}
+
+/* end nav-toggle styling */
+
+/* start navBar styling */
+
+#navBar {
+    height: 100%;
+    width: 100%;
+    background: var(--black);
+    display: flex;
+    flex-direction: column;
+    transition: all ease-in-out;
+    visibility: hidden;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 999;
+}
+
+.nav-bar-open {
+    animation-name: nav-bar-open;
+    animation-duration: 300ms;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86)
+}
+
+.nav-bar-close {
+    animation-name: nav-bar-open;
+    animation-direction: reverse;
+    animation-duration: 300ms;
+    animation-iteration-count: 1;
+}
+
+@keyframes nav-bar-open {
+    0% {
+        height: 0;
+        width: 0;
+        bottom: 50%;
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 50%;
+        background: var(--gray);
+    }
+
+    100% {
+        height: 100% !important;
+        width: 100% !important;
+        border-radius: none;
+    }
+}
+.visible {
+    visibility: visible !important;
+}
+
