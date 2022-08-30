@@ -2,11 +2,14 @@
     --white: #fff;
     --black: #161616;
     --gray: #8c8c8c;
+    --red: #fd7373;
 }
 
 html {
     padding: 0;
     margin: 0;
+    font-family: 'Aboreto', cursive;
+    overflow-y: hidden;
 }
 
 #body {
@@ -169,19 +172,20 @@ html {
     background: var(--black);
     display: flex;
     flex-direction: column;
-    transition: all ease-in-out;
+    /* transition: all ease-in-out; */
     visibility: hidden;
     position: absolute;
     bottom: 0;
     right: 0;
     z-index: 999;
+    overflow-x: hidden;
 }
 
 .nav-bar-open {
     animation-name: nav-bar-open;
     animation-duration: 300ms;
     animation-iteration-count: 1;
-    animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86)
+    animation-timing-function: cubic-bezier(0.6, 0.5, 0.5, 1)
 }
 
 .nav-bar-close {
@@ -189,6 +193,7 @@ html {
     animation-direction: reverse;
     animation-duration: 300ms;
     animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.6, 0.5, 0.5, 1)
 }
 
 @keyframes nav-bar-open {
@@ -196,8 +201,8 @@ html {
         height: 0;
         width: 0;
         bottom: 50%;
-        border-top-left-radius: 50%;
-        border-bottom-left-radius: 50%;
+        border-top-left-radius: 25%;
+        border-bottom-left-radius: 25%;
         background: var(--gray);
     }
 
@@ -210,4 +215,64 @@ html {
 .visible {
     visibility: visible !important;
 }
+.nav-link-container{
+    height: 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.nav-link{
+    opacity: 0;
+}
+.nav-link > a{
+    color: var(--white);
+    font-size: 6vmax;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+.nav-link-fade-in{
+    animation-name: nav-link-fade-in;
+    animation-fill-mode: forwards;
+    animation-duration: 1000ms;
+    animation-iteration-count: 1;
+}
 
+@keyframes nav-link-fade-in {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+.nav-link-fade-out{
+    animation-name: nav-link-fade-out;
+    animation-fill-mode: forwards;
+    animation-duration: 1000ms;
+    animation-iteration-count: 1;
+}
+@keyframes nav-link-fade-out {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+        transform: translateX(1000px)
+    }
+}
+.nav-bar-footer{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    opacity: 0;
+}
+.nav-bar-footer > a {
+    text-decoration: none;
+    color: var(--red);
+}
